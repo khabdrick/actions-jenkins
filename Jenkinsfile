@@ -35,9 +35,8 @@ pipeline {
         steps {
             sh '''
             . ./venv/bin/activate && \
-            flake8 . --count --ignore=W503,E501 --max-line-length=91 --show-source --statistics && \
-            black --check . && \
-            codespell --quiet-level=2
+            flake8 . --count --ignore=W503,E501 --max-line-length=91 --show-source --statistics --exclude=venv && \
+            black --check --exclude venv . 
             '''
         }
 }

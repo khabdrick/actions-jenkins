@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent {
+        node{
+            label 'docker-agent-python'
+        }
+    }
     
     options {
         skipDefaultCheckout true // GitHub Actions automatically checks out the repository, skipping here
@@ -12,13 +16,7 @@ pipeline {
             }
         }
         
-        stage('Set Up Python 3.8') {
-            steps {
-                sh 'sudo apt update'
-                sh 'sudo apt install -y python3.8 python3-pip'
-                sh 'python3.8 -m pip install --upgrade pip'
-            }
-        }
+
         
         stage('Install Dependencies') {
             steps {

@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any
     
     stages {
         stage('Checkout Repository') {
@@ -9,17 +9,30 @@ pipeline {
             }
         }
         
-
+    }
         
         stage('Install Dependencies') {
             steps {
-                sh 'node --version'
+               
+                // Create a Python virtual environment
+                sh 'python3 -m venv venv'
+                
+                // Activate the virtual environment
+                sh 'source venv/bin/activate'
+                
+                // Upgrade pip within the virtual environment
                 sh 'pip install --upgrade pip'
+                
+                // Install dependencies from requirements.txt within the virtual environment
                 sh 'pip install -r requirements.txt'
+                
+                // Verify package installation
                 sh 'pip show codespell'
                 sh 'which codespell'
+                
             }
         }
+    
 
         stage('Lint tests') {
             steps {

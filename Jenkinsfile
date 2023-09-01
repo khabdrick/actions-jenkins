@@ -24,7 +24,7 @@ pipeline {
         stage('Lint tests') {
             steps {
                 // sh 'black --check .'
-                sh 'ls'
+                sh 'echo $PATH'
                 sh 'which codespell'
                 sh 'codespell --quiet-level=2'
                 sh 'flake8 . --count --ignore=W503,E501 --max-line-length=91 --show-source --statistics'

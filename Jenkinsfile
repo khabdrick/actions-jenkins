@@ -1,12 +1,8 @@
 pipeline {
     agent {
-        docker { image 'python:3.10'}
+        docker { image 'node:16-alpine'}
     }
     
-    options {
-        skipDefaultCheckout true // GitHub Actions automatically checks out the repository, skipping here
-    }
-
     stages {
         stage('Checkout Repository') {
             steps {
@@ -18,6 +14,7 @@ pipeline {
         
         stage('Install Dependencies') {
             steps {
+                sh 'node --version'
                 sh 'pip install --upgrade pip'
                 sh 'pip install -r requirements.txt'
                 sh 'pip show codespell'

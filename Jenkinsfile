@@ -25,8 +25,8 @@ pipeline {
             steps {
                 // sh 'black --check .'
                 sh 'echo $PATH'
-                sh 'which codespell'
-                sh 'codespell --quiet-level=2'
+                // sh 'which codespell'
+                sh 'usr/local/bin/codespell --quiet-level=2'
                 sh 'flake8 . --count --ignore=W503,E501 --max-line-length=91 --show-source --statistics'
             }
         }

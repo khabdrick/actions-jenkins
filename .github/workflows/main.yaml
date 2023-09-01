@@ -1,6 +1,10 @@
 name: CI/CD
 
-on: [push] #specifies the event that should trigger the workflow (e.g., on: push).
+on:
+  push:
+    branches:
+      - master # Trigger the workflow only for pushes to the 'master' branch
+
 
 jobs: # specify the specific jobs that should be run as part of the workflow 
   build:

@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        label 'ubuntu-latest'
-    }
+    agent any
     
     options {
         skipDefaultCheckout true // GitHub Actions automatically checks out the repository, skipping here

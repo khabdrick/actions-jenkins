@@ -17,7 +17,7 @@ pipeline {
             sh 'python3 -m venv venv'
             
             // Activate the virtual environment
-            sh 'source venv/bin/activate'
+            sh '. ./venv/bin/activate'
             
             // Upgrade pip within the virtual environment
             sh 'pip install --upgrade pip'

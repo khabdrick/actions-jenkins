@@ -1,9 +1,5 @@
 pipeline {
-    agent {
-        node{
-            label 'docker-agent-python'
-        }
-    }
+    agent any
     
     options {
         skipDefaultCheckout true // GitHub Actions automatically checks out the repository, skipping here

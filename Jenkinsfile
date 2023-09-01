@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image 'ubuntu:22.04'}
+        docker { image 'ubuntu:20.04'}
     }
     
     options {

@@ -22,7 +22,6 @@ jobs: # specify the specific jobs that should be run as part of the workflow
 
     - name: Lint tests
       run: |
-        pip install -r requirements.txt
         black --check .
         codespell --quiet-level=2  # --ignore-words-list="" --skip=""
         flake8 . --count --ignore=W503,E501 --max-line-length=91 --show-source --statistics 

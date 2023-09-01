@@ -23,10 +23,6 @@ pipeline {
 
         stage('Lint tests') {
             steps {
-                sh 'pip install -r requirements.txt'
-                sh 'pip install black'
-                sh 'pip install codespell'
-                sh 'pip install flake8'
                 sh 'black --check .'
                 sh 'codespell --quiet-level=2'
                 sh 'flake8 . --count --ignore=W503,E501 --max-line-length=91 --show-source --statistics'

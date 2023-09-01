@@ -45,12 +45,7 @@ pipeline {
     stage('Run Tests') {
         steps {
             sh '. ./venv/bin/activate && pytest'
-        }
-        post {
-            always {
-                junit '**/test-reports/*.xml' // Path to JUnit test reports
-            }
-        }
+        }    
     }
 
     stage('Build Docker Image') {

@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        docker { image 'ubuntu:22.04'}
+    }
     
     options {
         skipDefaultCheckout true // GitHub Actions automatically checks out the repository, skipping here
@@ -19,12 +21,13 @@ pipeline {
                 sh 'pip install --upgrade pip'
                 sh 'pip install -r requirements.txt'
                 sh 'pip show codespell'
+                sh 'which codespell'
             }
         }
 
         stage('Lint tests') {
             steps {
-                // sh 'black --check .'
+                sh 'black --check .'
                 sh 'echo $PATH'
                 // sh 'which codespell'
                 // sh '/usr/local/bin/codespell --quiet-level=2'

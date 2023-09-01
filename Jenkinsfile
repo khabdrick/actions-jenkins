@@ -1,6 +1,9 @@
 pipeline {
     agent {
-        docker { image 'node:16-alpine'}
+        docker {
+            image 'ubuntu:20.04'
+            args '-u root'  // Optional: Run as root user if needed
+        }
     }
     
     stages {

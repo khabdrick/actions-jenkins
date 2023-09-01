@@ -50,7 +50,7 @@ pipeline {
 
     stage('Build Docker Image') {
         steps {
-            sh "echo 'muhammed' | sudo -S chmod 666 /var/run/docker.sock"
+            sh "echo 'admin' | sudo -S chmod 666 /var/run/docker.sock"
             sh 'docker build -t khabdrick/test_app:v1 .'
         }
     }

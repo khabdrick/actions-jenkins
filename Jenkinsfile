@@ -12,6 +12,7 @@ pipeline {
         
     stage('Install Dependencies') {
         steps {
+            sh 'apt-get update && apt-get install -y python3 python3-venv'
             
             // Create a Python virtual environment
             sh 'python3 -m venv venv'
@@ -24,8 +25,6 @@ pipeline {
             
             // Install dependencies from requirements.txt within the virtual environment
             
-            // Verify package installation
-            sh 'pip show codespell'
             
         }
     }

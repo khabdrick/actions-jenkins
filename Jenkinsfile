@@ -1,16 +1,11 @@
 pipeline {
-    agent {
-        docker {
-            image 'ubuntu:20.04'
-            args '-u root'  // Optional: Run as root user if needed
-            volumes ['/var/run/docker.sock:/var/run/docker.sock']
-        }
-    }
+    agent none
     
     stages {
         stage('Checkout Repository') {
             steps {
-                checkout scm
+                sh 'echo "Hello, Linux!"'
+                sh 'ls -l'
             }
         }
         

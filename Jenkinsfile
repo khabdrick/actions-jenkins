@@ -73,12 +73,14 @@ pipeline {
 post {
         success {
             emailext subject: 'CI/CD Pipeline Notification',
-                      body: 'Your build was successful!',
+                      body: 'Your build was successful! ✨ 🍰 ✨',
                       to: 'muhamzyali@gmail.com'
+                      attachLog: true
         }
         failure {
-            emailext subject: 'CI/CD Pipeline Notification. Build Failed',
-                      body: 'Your build failed. Please investigate.',
+            emailext subject: 'CI/CD Pipeline Notification. ',
+                      body: 'Your build failed. Please investigate.❌ ❌ ❌ ',
+                      attachLog: true
                       to: 'muhamzyali@gmail.com'
         }
     }

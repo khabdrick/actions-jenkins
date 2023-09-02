@@ -58,27 +58,15 @@ pipeline {
         }
     }
 
-    // stage('Email Notifications') {
-    //     steps {
-    //         emailext (
-    //             to: 'muhamzyali@gmail.com',
-    //             subject: 'CI/CD Pipeline Notification',
-    //             body: 'The CI/CD pipeline has completed successfully.',
-    //             attachLog: true
-    //         )
-    //     }
-    // }
-}
- post {
-        success {
-            emailext subject: 'CI/CD Pipeline Notification',
-                      body: 'Your build was successful!',
-                      to: 'muhamzyali@gmail.com'
-        }
-        failure {
-            emailext subject: 'CI/CD Pipeline Notification. Build Failed',
-                      body: 'Your build failed. Please investigate.',
-                      to: 'muhamzyali@gmail.com'
+    stage('Email Notifications') {
+        steps {
+            mail (
+                to: 'muhamzyali@gmail.com',
+                subject: 'CI/CD Pipeline Notification',
+                body: 'The CI/CD pipeline has completed successfully.',
+                attachLog: true
+            )
         }
     }
+}
 }

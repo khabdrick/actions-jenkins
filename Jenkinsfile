@@ -55,7 +55,7 @@ pipeline {
 
     stage('Push Docker Image to Registry') {
         steps {
-            withCredentials([string(credentialsId: 'docker-credentials', variable: 'DOCKER_PASSWORD')]) {
+            withCredentials([string(credentialsId: 'docker-password', variable: 'DOCKER_PASSWORD')]) {
                 sh 'docker login -u khabdrick -p $DOCKER_PASSWORD'
                 sh 'docker push khabdrick/test_app:v1'
             }

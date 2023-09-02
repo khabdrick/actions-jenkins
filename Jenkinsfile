@@ -58,30 +58,20 @@ pipeline {
         }
     }
 
-    // stage('Email Notifications') {
-    //     steps {
-    //         emailext (
-    //             to: 'muhamzyali@gmail.com',
-    //             subject: 'CI/CD Pipeline Notification',
-    //             body: 'The CI/CD pipeline has completed successfully.',
-    //             attachLog: true
-    //         )
-    //     }
-    // }
     
 }
 post {
         success {
             emailext subject: 'CI/CD Pipeline Notification',
                       body: 'Your build was successful! ✨ 🍰 ✨',
-                      to: 'muhamzyali@gmail.com',
+                      to: 'youremail@gmail.com',
                       attachLog: true
         }
         failure {
             emailext subject: 'CI/CD Pipeline Notification. ',
                       body: 'Your build failed. Please investigate.❌ ❌ ❌ ',
                       attachLog: true,
-                      to: 'muhamzyali@gmail.com'
+                      to: 'youremail@gmail.com'
         }
     }
 }

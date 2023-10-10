@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent agent1
     triggers {
         pollSCM('*/5 * * * *') // Polls the SCM every 5 minutes
     }

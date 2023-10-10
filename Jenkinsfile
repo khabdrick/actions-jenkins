@@ -15,6 +15,7 @@ pipeline {
             // Create a Python virtual environment
             sh 'python3 -m venv venv'
             
+            sh 'apt-get install python3-pip'
             // Activate the virtual environment
             sh '. ./venv/bin/activate && pip install -r requirements.txt && black --check .'
             
@@ -66,14 +67,14 @@ post {
         success {
             emailext subject: 'CI/CD Pipeline Notification',
                       body: 'Your build was successful! ✨ 🍰 ✨',
-                      to: 'youremail@gmail.com',
+                      to: 'muhamzyali@gmail.com',
                       attachLog: true
         }
         failure {
             emailext subject: 'CI/CD Pipeline Notification. ',
                       body: 'Your build failed. Please investigate.❌ ❌ ❌ ',
                       attachLog: true,
-                      to: 'youremail@gmail.com'
+                      to: 'muhamzyali@gmail.com'
         }
     }
 }

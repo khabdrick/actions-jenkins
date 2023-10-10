@@ -27,7 +27,12 @@ pipeline {
             
         }
     }
-    
+    stage('Install Docker') {
+        steps {
+            sh 'curl -fsSL https://get.docker.com | sh'
+        }
+    }
+
 
     stage('Lint tests') {
         steps {

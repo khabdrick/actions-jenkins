@@ -15,7 +15,7 @@ pipeline {
             // Create a Python virtual environment
             sh 'python3 -m venv venv'
             
-            sh 'apt-get install python3-pip'
+            sh 'apt-get install -y python3-pip'
             // Activate the virtual environment
             sh '. ./venv/bin/activate && pip install -r requirements.txt && black --check .'
             

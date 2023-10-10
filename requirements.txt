@@ -1,5 +1,5 @@
 Flask==2.0.3
 pytest==6.2.5
-bandit 
-black 
-flake8 
+bandit==1.7.5
+black==23.7.0
+flake8==6.1.0
